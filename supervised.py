@@ -1,4 +1,5 @@
 import os
+from fastai.vision import image
 
 ''' 
 1) Add 'test' folder next to 'train', 'valid', models'
@@ -22,7 +23,7 @@ def run_test(path, show_images=False, test_folder='test'):
     if os.path.isdir(folderpath):
       for img in os.listdir(folderpath):
         imgpath = folderpath + '/' + img
-        img = open_image(imgpath)
+        img = image.open_image(imgpath)
         p = learn.predict(img)
         if show_images:
           img.show(title=p)
