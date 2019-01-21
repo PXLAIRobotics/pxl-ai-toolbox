@@ -12,7 +12,7 @@ Disclaimer: it will probably break if you don't follow these rules.
 Example: 
 run_test('drive/My Drive/Colab Notebooks/data/Rick & Morty/', show_images=True, test_folder='test1')
 '''
-def run_test(path, show_images=False, test_folder='test'):
+def run_test(model, path, show_images=False, test_folder='test'):
   count = 0
   correct = 0
   if not path[-1] == '/':
@@ -24,7 +24,7 @@ def run_test(path, show_images=False, test_folder='test'):
       for img in os.listdir(folderpath):
         imgpath = folderpath + '/' + img
         img = image.open_image(imgpath)
-        p = learn.predict(img)
+        p = model.predict(img)
         if show_images:
           img.show(title=p)
         prediction = str(p[0])
