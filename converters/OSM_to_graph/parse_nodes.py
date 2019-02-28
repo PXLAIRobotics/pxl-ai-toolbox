@@ -25,11 +25,11 @@ with open('nodes', 'r') as nodefile:
 
 output = open('output', 'w')
 output.write("# NODES\n")
-output.write("NODE;id;lat;lon\n")
+output.write("# NODE;id;lat;lon\n")
 for node in nodes: 
     output.write("NODE;%s;%s;%s\n" % (node[0], node[1], node[2]))
 
-output.write("\n#EDGES\n")
-output.write("EDGE;id1;id2\n")
+output.write("\n# EDGES\n")
+output.write("# EDGE;id1;id2\n")
 for edge in edges:
     output.write("EDGE;%s;%s\n" % (edge[0], edge[1]))
